@@ -9,7 +9,7 @@ import org.junit.Test;
  *
  * @author Serhii Petrusha aka Mr_Rism
  */
-public class ConnectorTest {
+public class ConnectorImplTest {
 
   @Test
   public void proxyConnect() throws Exception {
