@@ -25,9 +25,12 @@ public class BestChangeMarketsLinks implements PageResolver {
     while (matcher.find()) {
       String found = matcher.group();
 
-//      String identificator = ""+Pattern.compile(".*($s)(\\(\\D{2,6}\\))?.").matcher(found).replaceAll("$1");
-//      String data = Pattern.compile("(\").+(\")").matcher(found).group();
-      matches.put(identificator,  data);
+      Matcher identificator = Pattern.compile("(\\(\\D{2,6}\\))").matcher(found);
+      identificator.find();
+      Matcher data = Pattern.compile("\".\"")
+          .matcher(found);
+      data.find();
+      matches.put(identificator.group(),  data.group());
 
 
 
