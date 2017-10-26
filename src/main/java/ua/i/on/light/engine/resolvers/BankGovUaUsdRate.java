@@ -13,26 +13,22 @@ import ua.i.on.light.engine.PageResolver;
  */
 public class BankGovUaUsdRate implements PageResolver {
 
-  //https://bank.gov.ua/NBUStatService/v1/statdirectory/exchange?valcode=USD&date=20171026
-
 
   @Override
-  public Map<String, String> getRegX(String page) {
+  public Map<String, Map<ValuesTags, String>> getRegX(String page) {
 
-//    Pattern pattern = Pattern.compile(
-//        "<a href=\"https://www\\.bestchange\\.ru/privat24-uah-to(.{10,200})\\(\\D{3,7}\\)");
-//    Matcher matcher = pattern.matcher(page);
-    Map<String, String> matches = new HashMap<>();
-//    while (matcher.find()) {
-//      String found = matcher.group();
+    Map<String, Map<ValuesTags, String>> matches = new HashMap<>();
 
-
-      Matcher data = Pattern.compile("<rate>.*?</rate>")
-          .matcher(page);
-      data.find();
-      matches
-          .put("USD",
-              data.group().replaceAll("[^0-9\\.]", ""));
+    Matcher data = Pattern.compile("<rate>.*?</rate>")
+        .matcher(page);
+    data.find();
+    matches
+        .put("USD",
+            new HashMap<ValuesTags, String>() {
+              {
+                put(ValuesTags.PRICE, data.group().replaceAll("[^0-9\\.]", ""));
+              }
+            });
 
 //    }
     return matches;

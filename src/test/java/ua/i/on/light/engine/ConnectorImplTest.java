@@ -2,6 +2,7 @@ package ua.i.on.light.engine;
 
 import static org.junit.Assert.*;
 
+import org.junit.Ignore;
 import org.junit.Test;
 
 /**
@@ -12,6 +13,7 @@ import org.junit.Test;
 public class ConnectorImplTest {
 
   @Test
+  @Ignore
   public void proxyConnect() throws Exception {
 
     fail("This test is undone.");

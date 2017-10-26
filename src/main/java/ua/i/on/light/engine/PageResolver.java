@@ -9,6 +9,15 @@ import java.util.Map;
  */
 public interface PageResolver {
 
-  Map<String,String> getRegX(String page);
+  Map<String, Map<ValuesTags, String>> getRegX(String page);
+
+  enum ValuesTags{
+    CURRENCY,
+    URL,
+    DATE,
+    PRICE,
+    MINIMAL_AMOUNT
+
+  }
 
 }

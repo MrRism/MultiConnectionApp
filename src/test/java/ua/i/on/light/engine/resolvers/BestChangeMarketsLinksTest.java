@@ -4,6 +4,7 @@ import static org.junit.Assert.*;
 
 import java.util.Map;
 import org.junit.Test;
+import ua.i.on.light.engine.PageResolver.ValuesTags;
 
 /**
  * Created on 25.10.2017.
@@ -16,11 +17,11 @@ public class BestChangeMarketsLinksTest {
 
   @Test
   public void getRegX() throws Exception {
-    Map<String, String> actual = testObj.getRegX(
+    Map<String, Map<ValuesTags, String>> actual = testObj.getRegX(
         "<a href=\"https://www.bestchange.ru/privat24-uah-to-bitcoin.html\">Приват 24 UAH <span class=\"font13px\">→</span> Bitcoin (BTC)</a>");
 
 
-    assertEquals("https://www.bestchange.ru/privat24-uah-to-bitcoin.html", actual.get("BTC"));
+    assertEquals("https://www.bestchange.ru/privat24-uah-to-bitcoin.html", actual.get("BTC").get(ValuesTags.URL));
 
   }
 

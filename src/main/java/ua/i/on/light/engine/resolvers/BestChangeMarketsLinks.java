@@ -2,8 +2,6 @@ package ua.i.on.light.engine.resolvers;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Set;
-import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import ua.i.on.light.engine.PageResolver;
@@ -17,12 +15,12 @@ public class BestChangeMarketsLinks implements PageResolver {
 
 
   @Override
-  public Map<String, String> getRegX(String page) {
+  public Map<String, Map<ValuesTags, String>> getRegX(String page) {
 
     Pattern pattern = Pattern.compile(
         "<a href=\"https://www\\.bestchange\\.ru/privat24-uah-to(.{10,200})\\(\\D{3,7}\\)");
     Matcher matcher = pattern.matcher(page);
-    Map<String, String> matches = new HashMap<>();
+    Map<String, Map<ValuesTags, String>> matches = new HashMap<>();
     while (matcher.find()) {
       String found = matcher.group();
 
@@ -31,9 +29,11 @@ public class BestChangeMarketsLinks implements PageResolver {
       Matcher data = Pattern.compile("\".*?\"")
           .matcher(found);
       data.find();
+      Map<ValuesTags, String> gainedValues = new HashMap<>();
+      gainedValues.put(ValuesTags.URL, data.group().replaceAll("\"", ""));
       matches
           .put(identificator.group().replaceAll("(\\()|(\\))", ""),
-              data.group().replaceAll("\"", ""));
+              gainedValues);
 
     }
     return matches;

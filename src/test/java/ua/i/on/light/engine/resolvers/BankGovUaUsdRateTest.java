@@ -4,6 +4,7 @@ import static org.junit.Assert.*;
 
 import java.util.Map;
 import org.junit.Test;
+import ua.i.on.light.engine.PageResolver.ValuesTags;
 
 /**
  * Created on 26.10.2017.
@@ -15,7 +16,9 @@ public class BankGovUaUsdRateTest {
   @Test
   public void getRegX() throws Exception {
 
-    Map<String,String> actual = new BankGovUaUsdRate().getRegX("<exchange>\n"
+    //https://bank.gov.ua/NBUStatService/v1/statdirectory/exchange?valcode=USD&date=20171026
+
+    Map<String, Map<ValuesTags, String>> actual = new BankGovUaUsdRate().getRegX("<exchange>\n"
         + "<currency>\n"
         + "<r030>840</r030>\n"
         + "<txt>Долар США</txt>\n"
@@ -27,7 +30,7 @@ public class BankGovUaUsdRateTest {
 
     String expexted = "26.770046";
 
-    assertEquals(expexted, actual.get("USD"));
+    assertEquals(expexted, actual.get("USD").get(ValuesTags.PRICE));
   }
 
 
