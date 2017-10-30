@@ -1,4 +1,4 @@
-package ua.i.on.light.engine;
+package ua.i.on.light.engine.resolvers;
 
 import java.util.Map;
 

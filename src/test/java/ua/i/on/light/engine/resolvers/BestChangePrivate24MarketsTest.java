@@ -4,16 +4,16 @@ import static org.junit.Assert.*;
 
 import java.util.Map;
 import org.junit.Test;
-import ua.i.on.light.engine.PageResolver.ValuesTags;
+import ua.i.on.light.engine.resolvers.PageResolver.ValuesTags;
 
 /**
  * Created on 25.10.2017.
  *
  * @author Serhii Petrusha aka Mr_Rism
  */
-public class BestChangeMarketsLinksTest {
+public class BestChangePrivate24MarketsTest {
 
-  private BestChangeMarketsLinks testObj = new BestChangeMarketsLinks();
+  private BestChangePrivate24Markets testObj = new BestChangePrivate24Markets();
 
   @Test
   public void getRegX() throws Exception {
