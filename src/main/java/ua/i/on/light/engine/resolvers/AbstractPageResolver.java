@@ -10,8 +10,6 @@ import java.util.regex.Pattern;
  */
 public abstract class AbstractPageResolver implements PageResolver {
 
-  private String urlToResolve = "";
-
   protected String matcherFindFirstAndGrabMidData(String input, String prefix, String suffix) {
     Matcher data = Pattern.compile(prefix + ".*?" + suffix)
         .matcher(input);

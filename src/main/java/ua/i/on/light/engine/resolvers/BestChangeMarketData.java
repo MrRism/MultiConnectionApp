@@ -27,7 +27,7 @@ public class BestChangeMarketData extends AbstractPageResolver {
       String price = matcherFindFirstAndGrabMidData(found, "<div class=\"fs\">", "<small>");
       price = price.length() > 0 ? price
           : matcherFindFirstAndGrabMidData(found, "<div class=\"fs\">", "</div>");
-      values.put(ValuesTags.PRICE, price.replaceAll(("[^\\d\\.]"), ""));
+      values.put(ValuesTags.PRICE, price.replaceAll(("[^\\d.]"), ""));
 
       values.put(ValuesTags.URL,
           matcherFindFirstAndGrabMidData(found, "href=\"", "\""));
