@@ -10,14 +10,14 @@ import java.util.regex.Pattern;
  *
  * @author Serhii Petrusha aka Mr_Rism
  */
-public class BestChangeMarketPrices extends AbstractPageResolver {
+public class BestChangeMarketData extends AbstractPageResolver {
 
 
   @Override
   public Map<String, Map<ValuesTags, String>> getRegX(String page) {
 
     Pattern pattern = Pattern.compile(
-        "<td class=\"bj\">.+<td class=\"bj\">");
+        "<td class=\"bj\">.+((<td class=\"bj\">)|(</div>))");
     Matcher matcher = pattern.matcher(page);
     Map<String, Map<ValuesTags, String>> matches = new HashMap<>();
     while (matcher.find()) {

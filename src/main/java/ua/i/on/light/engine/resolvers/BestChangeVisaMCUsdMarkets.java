@@ -17,7 +17,7 @@ public class BestChangeVisaMCUsdMarkets extends AbstractPageResolver {
   public Map<String, Map<ValuesTags, String>> getRegX(String page) {
 
     Pattern pattern = Pattern.compile(
-        "<a href=\"https://www\\.bestchange\\.ru/visamastercard-usd-to(.{10,200})\\(\\D{3,7}\\)");
+        "<a href=\"https://www.bestchange.ru/visa-mastercard-usd-to(.{10,200})\\(\\D{3,7}\\)");
     Matcher matcher = pattern.matcher(page);
     Map<String, Map<ValuesTags, String>> matches = new HashMap<>();
     while (matcher.find()) {
