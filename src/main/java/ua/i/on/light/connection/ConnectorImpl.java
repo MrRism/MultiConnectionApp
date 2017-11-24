@@ -1,4 +1,4 @@
-package ua.i.on.light.engine;
+package ua.i.on.light.connection;
 
 import java.io.BufferedReader;
 import java.io.IOException;

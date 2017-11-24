@@ -1,4 +1,4 @@
-package ua.i.on.light.engine.resolvers;
+package ua.i.on.light.dataGetters.resolvers;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -12,6 +12,15 @@ import java.util.regex.Pattern;
  */
 public class BestChangeMarketData extends AbstractPageResolver {
 
+  Map<PageProperty, String> suportedPages = Map.of(
+      PageProperty.SINGLE_PAGE,
+      "https://www.bestchange.ru/sitemap.html"
+  );
+
+  @Override
+  public Map<PageProperty, String> getPages() {
+    return suportedPages;
+  }
 
   @Override
   public Map<String, Map<ValuesTags, String>> getRegX(String page) {

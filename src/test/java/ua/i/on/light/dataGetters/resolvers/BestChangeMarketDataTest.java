@@ -1,10 +1,10 @@
-package ua.i.on.light.engine.resolvers;
+package ua.i.on.light.dataGetters.resolvers;
 
 import static org.junit.Assert.assertEquals;
 
 import java.util.Map;
 import org.junit.Test;
-import ua.i.on.light.engine.resolvers.PageResolver.ValuesTags;
+import ua.i.on.light.dataGetters.resolvers.PageResolver.ValuesTags;
 
 /**
  * Created on 10/26/2017.

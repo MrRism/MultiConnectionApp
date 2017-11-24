@@ -1,9 +1,7 @@
-package ua.i.on.light.engine.resolvers;
+package ua.i.on.light.dataGetters.resolvers;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 /**
  * Created on 24.10.2017.
@@ -12,15 +10,26 @@ import java.util.regex.Pattern;
  */
 public class CryptocompareUsdPrice extends AbstractPageResolver {
 
+  Map<PageProperty, String> suportedPages = Map.of(
+      PageProperty.REGEX_PAGES,
+      "https://min-api.cryptocompare.com/data/price?fsym=[A-Z]{3-6}&tsyms=[A-Z]{3-6}"
+  );
+
+  @Override
+  public Map<PageProperty, String> getPages() {
+    return suportedPages;
+  }
+
 
   @Override
   public Map<String, Map<ValuesTags, String>> getRegX(String page) {
 
     String matchedPrice = page.replaceAll("[^\\d.]", "");
 
-    String matchedCurrency = matcherFindFirstAndGrabMidData(page, "\"","\"").replaceAll("\"","");
+    String matchedCurrency = matcherFindFirstAndGrabMidData(page, "\"", "\"")
+        .replaceAll("\"", "");
 
-    Map<String, Map<ValuesTags, String>> result =  new HashMap<>();
+    Map<String, Map<ValuesTags, String>> result = new HashMap<>();
 
     Map<ValuesTags, String> valuesTagsStringMap = new HashMap<>();
 

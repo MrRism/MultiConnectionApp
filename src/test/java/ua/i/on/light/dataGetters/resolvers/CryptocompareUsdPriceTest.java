@@ -1,9 +1,9 @@
-package ua.i.on.light.engine.resolvers;
+package ua.i.on.light.dataGetters.resolvers;
 
 import static org.junit.Assert.*;
 
 import org.junit.Test;
-import ua.i.on.light.engine.resolvers.PageResolver.ValuesTags;
+import ua.i.on.light.dataGetters.resolvers.PageResolver.ValuesTags;
 
 /**
  * Created on 04.11.2017.

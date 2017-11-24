@@ -1,4 +1,4 @@
-package ua.i.on.light.engine.resolvers;
+package ua.i.on.light.dataGetters.resolvers;
 
 import java.util.Map;
 
@@ -11,13 +11,20 @@ public interface PageResolver {
 
   Map<String, Map<ValuesTags, String>> getRegX(String page);
 
-  enum ValuesTags{
+  Map<PageProperty, String> getPages();
+
+  enum ValuesTags {
     CURRENCY,
     URL,
     DATE,
     PRICE,
     MINIMAL_AMOUNT
 
+  }
+
+  enum PageProperty {
+    SINGLE_PAGE,
+    REGEX_PAGES
   }
 
 }

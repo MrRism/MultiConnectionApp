@@ -1,4 +1,4 @@
-package ua.i.on.light.engine.resolvers;
+package ua.i.on.light.dataGetters.resolvers;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -11,6 +11,16 @@ import java.util.regex.Pattern;
  * @author Serhii Petrusha aka Mr_Rism
  */
 public class BestChangeVisaMCUsdMarkets extends AbstractPageResolver {
+
+  Map<PageProperty, String> suportedPages = Map.of(
+      PageProperty.SINGLE_PAGE,
+      "https://www.bestchange.ru/sitemap.html"
+  );
+
+  @Override
+  public Map<PageProperty, String> getPages() {
+    return suportedPages;
+  }
 
 
   @Override
@@ -26,9 +36,8 @@ public class BestChangeVisaMCUsdMarkets extends AbstractPageResolver {
       Matcher identificator = Pattern.compile("(\\(\\D{2,6}\\))").matcher(found);
       identificator.find();
 
-
       Map<ValuesTags, String> gainedValues = new HashMap<>();
-      gainedValues.put(ValuesTags.URL, matcherFindFirstAndGrabMidData(found, "\"","\""));
+      gainedValues.put(ValuesTags.URL, matcherFindFirstAndGrabMidData(found, "\"", "\""));
       matches
           .put(identificator.group().replaceAll("(\\()|(\\))", ""),
               gainedValues);

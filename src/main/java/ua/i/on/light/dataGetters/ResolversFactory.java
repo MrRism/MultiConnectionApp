@@ -1,4 +1,4 @@
-package ua.i.on.light.engine;
+package ua.i.on.light.dataGetters;
 
 /**
  * Created on 27.10.2017.

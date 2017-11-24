@@ -1,4 +1,4 @@
-package ua.i.on.light.engine;
+package ua.i.on.light.connection;
 
 /**
  * Created on 24.10.2017.
